@@ -1,0 +1,11 @@
+<h1> Grocery Index Page! </h1>
+
+<%= link_to "New Grocery Item", new_cart_path %><br></br>
+
+<% @carts.each do |cart| %>
+    <li>
+      <%= link_to cart.item, cart_path(cart.id) %>
+      <%= link_to "edit", edit_cart_path(cart[:id]) %>
+      <%= link_to "delete", cart, method: :delete, data: { confirm: "You sure?" }%>
+    </li>
+<% end %>
